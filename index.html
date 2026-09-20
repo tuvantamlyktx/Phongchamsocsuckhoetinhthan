@@ -10,7 +10,140 @@
     <meta property="og:title" content="Tư vấn tâm lý KTX">
     <meta property="og:description" content="Không gian chăm sóc sức khỏe tinh thần cho sinh viên Ký túc xá. Miễn phí và bảo mật.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💙%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+:root {
+    --bg: #f0f7fb;
+    --text: #2c3e50;
+    --primary: #1e88e5;
+    --primary-mid: #1565c0;
+    --primary-dark: #0d47a1;
+    --accent: #42a5f5;
+    --light: #e3f2fd;
+    --danger: #c62828;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+a { color: var(--primary-mid); }
+a:hover { color: var(--primary-dark); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: -999px; top: 0; background: var(--primary-dark); color: #fff; padding: .6rem 1rem; z-index: 2000; }
+.skip-link:focus { left: 0; color: #fff; }
+
+.site-header { background: var(--light); padding: 2rem 1rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.site-header h1 { font-size: 2rem; color: var(--primary-dark); margin-bottom: .5rem; }
+.site-header p { color: var(--primary); font-size: 1.1rem; }
+
+.site-nav { position: sticky; top: 0; z-index: 900; background: #fff; display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem 1.5rem; padding: .6rem; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); }
+.site-nav a { text-decoration: none; color: var(--primary-mid); font-weight: 500; padding: .5rem; }
+.site-nav a:hover { color: var(--primary-dark); text-decoration: underline; }
+
+.container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+section { margin-bottom: 3rem; }
+h2 { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 1rem; border-left: 6px solid var(--accent); padding-left: 1rem; }
+h3 { margin-bottom: .5rem; color: var(--primary-dark); }
+.mt { margin-top: 1rem; }
+.mt-lg { margin-top: 2.5rem; }
+.note { margin-top: .8rem; font-size: .95rem; }
+.empty { color: #5f6f7e; font-style: italic; }
+
+.card { background: #fff; border-radius: var(--radius); padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,.05); transition: transform .2s; }
+.card:hover { transform: translateY(-3px); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.card details { margin-top: .8rem; }
+.card summary { cursor: pointer; color: #1976d2; font-weight: 600; }
+.card ul { margin: .6rem 0 0 1.2rem; }
+.card li { margin-bottom: .3rem; }
+.card p + p { margin-top: .4rem; }
+
+.table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; background: #fff; min-width: 560px; }
+th, td { padding: .8rem 1rem; text-align: left; }
+thead th { background: #bbdefb; color: var(--primary-dark); }
+tbody th { font-weight: 600; }
+tbody tr:nth-child(even) { background: #f5faff; }
+tbody tr.today { background: #fff8e1; outline: 2px solid #ffca28; outline-offset: -2px; }
+
+.btn { display: inline-block; padding: .8rem 1.5rem; background: var(--primary); color: #fff; border: none; border-radius: 30px; text-decoration: none; font-weight: 600; cursor: pointer; transition: background .2s; }
+.btn:hover { background: var(--primary-mid); color: #fff; }
+
+.hotline { font-size: 1.3rem; font-weight: 700; color: var(--danger); }
+.alert { margin-top: 1rem; padding: .9rem 1rem; background: #ffebee; border-left: 5px solid var(--danger); border-radius: 6px; }
+
+.site-footer { background: var(--light); text-align: center; padding: 1.5rem 1rem; margin-top: 3rem; color: var(--primary-dark); font-size: .95rem; }
+.disclaimer { margin-top: .3rem; font-size: .85rem; opacity: .85; }
+
+/* Chat widget */
+.chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.chat-icon { width: 60px; height: 60px; background: var(--primary); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(0, 0, 0, .25); color: #fff; font-size: 28px; }
+.chat-icon:hover { background: var(--primary-mid); }
+.chat-window { width: min(340px, calc(100vw - 40px)); max-height: min(520px, calc(100vh - 120px)); background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, .18); overflow: hidden; display: flex; flex-direction: column; }
+.chat-window[hidden] { display: none; }
+.chat-header { background: var(--primary); color: #fff; padding: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+.close-chat { background: none; border: none; color: #fff; font-size: 1.6rem; cursor: pointer; line-height: 1; }
+.chat-body { padding: 1rem; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: .8rem; background: #f8fafd; }
+.chat-footer { padding: .8rem; background: #fff; border-top: 1px solid #e0e0e0; display: flex; gap: .5rem; flex-wrap: wrap; max-height: 170px; overflow-y: auto; }
+.bubble { max-width: 88%; padding: .7rem 1rem; border-radius: 18px; font-size: .92rem; line-height: 1.45; white-space: pre-line; overflow-wrap: anywhere; }
+.bubble a { color: inherit; font-weight: 600; }
+.bot { background: var(--light); align-self: flex-start; border-bottom-left-radius: 4px; }
+.user { background: var(--primary); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+.quick-option { background: #fff; border: 1px solid #90caf9; padding: .5rem 1rem; border-radius: 20px; font-size: .85rem; cursor: pointer; font-family: inherit; color: var(--text); transition: background .2s; }
+.quick-option:hover { background: #bbdefb; }
+.quick-option.emergency { background: #ffcdd2; border-color: #ef9a9a; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+@media print {
+    .site-nav, .chat-widget, .skip-link { display: none; }
+    body { background: #fff; }
+    .card, .table-wrap { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* ---------- Banner bản nháp & link quản trị ---------- */
+.draft-banner { background: #fff8e1; border-bottom: 2px solid #ffca28; padding: .6rem 1rem; text-align: center; font-size: .95rem; }
+.link-btn { background: none; border: none; color: var(--primary); text-decoration: underline; cursor: pointer; font: inherit; }
+.admin-link { margin-top: .6rem; font-size: .85rem; }
+.admin-link .link-btn { opacity: .7; }
+.admin-link .link-btn:hover { opacity: 1; }
+
+/* ---------- Trình chỉnh sửa (Quản trị) ---------- */
+.adm-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100vw); background: #fff; z-index: 3000; box-shadow: -6px 0 30px rgba(0,0,0,.25); display: flex; flex-direction: column; }
+.adm-panel[hidden] { display: none; }
+.adm-head { display: flex; justify-content: space-between; align-items: center; padding: .9rem 1rem; background: var(--primary-dark); color: #fff; }
+.adm-close { background: none; border: none; color: #fff; font-size: 1.6rem; cursor: pointer; line-height: 1; }
+.adm-body { overflow-y: auto; padding: 1rem; flex: 1; }
+.adm-sec { margin-bottom: 1.8rem; }
+.adm-sec h3 { border-bottom: 2px solid var(--light); padding-bottom: .3rem; margin-bottom: .8rem; }
+.adm-sec h4 { margin: 1.2rem 0 .6rem; color: var(--primary-dark); }
+.adm-hint { font-size: .85rem; color: #5f6f7e; margin-bottom: .6rem; }
+.adm-field { display: flex; flex-direction: column; gap: .2rem; margin-bottom: .6rem; flex: 1 1 130px; min-width: 0; }
+.adm-field span { font-size: .8rem; font-weight: 600; color: #455a64; }
+.adm-field input, .adm-field textarea, .adm-field select { font: inherit; padding: .5rem .6rem; border: 1px solid #b0bec5; border-radius: 8px; width: 100%; background: #fff; color: var(--text); }
+.adm-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: flex-end; }
+.adm-card { border: 1px solid #cfd8dc; border-radius: 10px; padding: .8rem; margin-bottom: .8rem; background: #fafcfe; }
+.adm-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .5rem; }
+.adm-btn { font: inherit; font-size: .9rem; padding: .5rem .9rem; border-radius: 8px; border: 1px solid var(--primary); background: #fff; color: var(--primary); cursor: pointer; margin-bottom: .6rem; }
+.adm-btn:hover { background: var(--light); }
+.adm-btn.primary { background: var(--primary); color: #fff; font-weight: 600; }
+.adm-btn.primary:hover { background: var(--primary-dark); }
+.adm-btn.danger { border-color: var(--danger); color: var(--danger); }
+.adm-btn.danger:hover { background: #ffebee; }
+.adm-check { display: block; font-size: .85rem; margin-bottom: .8rem; }
+.adm-status { margin-top: .4rem; padding: .6rem .8rem; border-radius: 8px; font-size: .9rem; }
+.adm-status:empty { display: none; }
+.adm-status.ok { background: #e8f5e9; color: #1b5e20; }
+.adm-status.err { background: #ffebee; color: #b71c1c; }
+@media print { .adm-panel, .draft-banner, .admin-link { display: none; } }
+
+</style>
 </head>
 <body>
     <a class="skip-link" href="#main">Bỏ qua để tới nội dung chính</a>
@@ -154,7 +287,602 @@
         <button type="button" class="chat-icon" id="chatToggle" aria-label="Mở hộp chat hỗ trợ" aria-expanded="false" aria-controls="chatWindow">💬</button>
     </div>
 
-    <script src="data/site-data.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+window.SITE_DATA = {
+  "info": {
+    "expertName": "Nguyễn Văn A",
+    "room": "Phòng 101, Nhà B – Ký túc xá",
+    "hotline": "1900 055559",
+    "email": "thamvan@ktx.edu.vn",
+    "bookingUrl": "https://forms.gle/mau"
+  },
+  "schedule": [
+    { "day": 1, "morning": "8:00 – 11:30", "afternoon": "14:00 – 17:00", "note": "Trực tiếp tại phòng" },
+    { "day": 2, "morning": "8:00 – 11:30", "afternoon": "14:00 – 17:00", "note": "Trực tiếp tại phòng" },
+    { "day": 3, "morning": "8:00 – 11:30", "afternoon": "Nghỉ", "note": "Chỉ tiếp nhận đặt lịch" },
+    { "day": 4, "morning": "8:00 – 11:30", "afternoon": "14:00 – 17:00", "note": "Trực tiếp tại phòng" },
+    { "day": 5, "morning": "8:00 – 11:30", "afternoon": "14:00 – 16:30", "note": "Ưu tiên ca khó" }
+  ],
+  "workshops": [
+    {
+      "title": "🌱 Vượt qua stress mùa thi",
+      "date": "2026-10-17",
+      "time": "14:00 – 16:00",
+      "place": "Hội trường KTX, tầng 2",
+      "desc": "Học cách quản lý thời gian, thư giãn cơ thể và tư duy tích cực trong kỳ thi. Cùng thực hành bài tập thở và chia sẻ với chuyên gia."
+    },
+    {
+      "title": "🧘 Kết nối để không cô đơn",
+      "date": "2026-10-21",
+      "time": "18:30 – 20:00",
+      "place": "Phòng sinh hoạt chung, Nhà C",
+      "desc": "Workshop trải nghiệm: lắng nghe chủ động, trò chuyện nhóm nhỏ, nghệ thuật tạo dựng tình bạn nơi xa nhà."
+    },
+    {
+      "title": "📖 Hiểu về cảm xúc của chính mình",
+      "date": "2026-06-01",
+      "time": "14:00 – 16:00",
+      "place": "Hội trường KTX",
+      "desc": "Bài trình bày và hình ảnh sẽ sớm được cập nhật. Cảm ơn 30 bạn đã tham gia!"
+    }
+  ]
+};
+
+</script>
+<script>
+'use strict';
+
+/* ==========================================================
+ * DỮ LIỆU: đọc từ data/site-data.js (window.SITE_DATA).
+ * Nếu trình duyệt có bản nháp (do trang Quản trị lưu) thì dùng bản nháp.
+ * ========================================================== */
+const DRAFT_KEY = 'ktx-site-draft-v1';
+const WEEKDAYS = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+
+function readDraft() {
+    try {
+        const raw = localStorage.getItem(DRAFT_KEY);
+        return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+}
+
+const BASE_DATA = window.SITE_DATA || { info: {}, schedule: [], workshops: [] };
+let DATA = readDraft() || JSON.parse(JSON.stringify(BASE_DATA));
+
+/* ==========================================================
+ * Tiện ích
+ * ========================================================== */
+function parseDate(iso) {
+    const [y, m, d] = String(iso).split('-').map(Number);
+    return new Date(y, (m || 1) - 1, d || 1);
+}
+
+function formatDate(iso) {
+    const d = parseDate(iso);
+    if (isNaN(d)) return '';
+    const dd = String(d.getDate()).padStart(2, '0');
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    return `${WEEKDAYS[d.getDay()]}, ${dd}/${mm}/${d.getFullYear()}`;
+}
+
+function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+}
+
+function safeUrl(url) {
+    return /^https?:\/\//i.test(url || '') ? url : '#';
+}
+
+function telHref(phone) {
+    return 'tel:' + String(phone || '').replace(/[^\d+]/g, '');
+}
+
+/* ==========================================================
+ * Hiển thị
+ * ========================================================== */
+function renderInfo() {
+    const info = DATA.info || {};
+    document.querySelectorAll('[data-bind]').forEach(n => { n.textContent = info[n.dataset.bind] || ''; });
+    document.querySelectorAll('[data-bind-tel]').forEach(n => {
+        const v = info[n.dataset.bindTel] || '';
+        n.textContent = v;
+        n.href = telHref(v);
+    });
+    document.querySelectorAll('[data-bind-mailto]').forEach(n => {
+        const v = info[n.dataset.bindMailto] || '';
+        n.textContent = v;
+        n.href = 'mailto:' + v;
+    });
+    document.querySelectorAll('[data-bind-href]').forEach(n => {
+        n.href = safeUrl(info[n.dataset.bindHref]);
+    });
+}
+
+function renderSchedule() {
+    const body = document.getElementById('scheduleBody');
+    body.replaceChildren();
+    const todayNum = new Date().getDay() || 7;
+    [...(DATA.schedule || [])].sort((a, b) => a.day - b.day).forEach(r => {
+        const tr = document.createElement('tr');
+        if (Number(r.day) === todayNum) tr.className = 'today';
+        const th = el('th', '', WEEKDAYS[Number(r.day) % 7]);
+        th.scope = 'row';
+        tr.append(th, el('td', '', r.morning), el('td', '', r.afternoon), el('td', '', r.note));
+        body.append(tr);
+    });
+}
+
+function renderWorkshops() {
+    const upcomingBox = document.getElementById('upcomingWorkshops');
+    const pastBox = document.getElementById('pastWorkshops');
+    upcomingBox.replaceChildren();
+    pastBox.replaceChildren();
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const list = (DATA.workshops || []).filter(w => !isNaN(parseDate(w.date)));
+    list.sort((a, b) => parseDate(a.date) - parseDate(b.date));
+    const upcoming = list.filter(w => parseDate(w.date) >= today);
+    const past = list.filter(w => parseDate(w.date) < today).reverse();
+
+    upcoming.forEach(w => {
+        const card = el('article', 'card');
+        card.append(el('h3', '', w.title));
+        card.append(el('p', '', `⏰ ${w.time}, ${formatDate(w.date)}`));
+        card.append(el('p', '', `📍 ${w.place}`));
+        card.append(el('p', '', w.desc));
+        const btn = el('a', 'btn mt', '📝 Đăng ký ngay');
+        btn.href = safeUrl(DATA.info && DATA.info.bookingUrl);
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+        card.append(btn);
+        upcomingBox.append(card);
+    });
+    if (!upcoming.length) upcomingBox.append(el('p', 'empty', 'Hiện chưa có workshop mới. Vui lòng quay lại sau nhé!'));
+
+    past.forEach(w => {
+        const card = el('article', 'card');
+        card.append(el('h3', '', w.title));
+        card.append(el('p', '', `🗓️ Đã tổ chức: ${formatDate(w.date)}`));
+        card.append(el('p', '', w.desc));
+        pastBox.append(card);
+    });
+    if (!past.length) pastBox.append(el('p', 'empty', 'Chưa có workshop nào đã diễn ra.'));
+}
+
+function renderAll() {
+    renderInfo();
+    renderSchedule();
+    renderWorkshops();
+    document.getElementById('draftBanner').hidden = !readDraft();
+    document.getElementById('year').textContent = new Date().getFullYear();
+}
+
+/* ==========================================================
+ * API cho trang Quản trị (assets/js/admin.js)
+ * ========================================================== */
+window.KTX = {
+    getData: () => JSON.parse(JSON.stringify(DATA)),
+    getBase: () => JSON.parse(JSON.stringify(BASE_DATA)),
+    setData(d) { DATA = d; renderAll(); },
+    saveDraft(d) { localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); renderAll(); },
+    clearDraft() {
+        try { localStorage.removeItem(DRAFT_KEY); } catch (e) { /* ignore */ }
+        DATA = JSON.parse(JSON.stringify(BASE_DATA));
+        renderAll();
+    },
+    hasDraft: () => !!readDraft(),
+    telHref, safeUrl, parseDate, WEEKDAYS
+};
+
+/* ==========================================================
+ * Mở trang Quản trị (tải admin.js khi cần)
+ * ========================================================== */
+let adminLoading = null;
+function openAdmin() {
+    if (window.KTX.openAdmin) return window.KTX.openAdmin();
+    if (!adminLoading) {
+        adminLoading = new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = 'assets/js/admin.js';
+            s.onload = resolve;
+            s.onerror = () => { adminLoading = null; reject(new Error('Không tải được admin.js')); };
+            document.body.append(s);
+        });
+    }
+    adminLoading.then(() => window.KTX.openAdmin()).catch(err => alert(err.message));
+}
+
+document.querySelectorAll('[data-open-admin]').forEach(b => b.addEventListener('click', openAdmin));
+if (location.hash === '#admin') openAdmin();
+
+/* ==========================================================
+ * Chatbot
+ * ========================================================== */
+const chatBody = document.getElementById('chatBody');
+const chatWindow = document.getElementById('chatWindow');
+const chatToggle = document.getElementById('chatToggle');
+const closeChat = document.getElementById('closeChat');
+
+const info = () => DATA.info || {};
+
+const TOPICS = {
+    stress: {
+        user: 'Tôi đang stress',
+        bot: () => 'Stress là điều ai cũng gặp. Bạn hãy thử hít thở sâu: hít vào 4 giây, giữ 7 giây, thở ra 8 giây, lặp lại 3 lần nhé.\nNếu stress kéo dài, bạn nên gặp chuyên gia để được hỗ trợ tốt hơn. Chọn "Muốn đặt lịch gặp" bên dưới để được hướng dẫn.'
+    },
+    sleep: {
+        user: 'Tôi bị mất ngủ',
+        bot: () => 'Bạn có thể thử: tránh điện thoại 30 phút trước khi ngủ, giữ phòng tối và yên tĩnh, đi ngủ đúng giờ và hạn chế caffeine buổi chiều.\nNếu tình trạng kéo dài, hãy đặt lịch gặp chuyên gia để tìm hiểu nguyên nhân nhé.'
+    },
+    alone: {
+        user: 'Tôi thấy cô đơn',
+        bot: () => 'Cảm giác của bạn rất thật và rất đáng được lắng nghe. Ở KTX có nhiều hoạt động nhóm, CLB thể thao, tình nguyện… Bạn cũng có thể đặt lịch trò chuyện riêng với chuyên gia. Chúng mình luôn ở đây.'
+    },
+    booking: {
+        user: 'Tôi muốn đặt lịch gặp chuyên gia',
+        bot: () => `Bạn có thể đặt lịch qua:\n• Google Form bên dưới\n• Gọi hotline ${info().hotline} trong giờ hành chính\nXem lịch trực cụ thể ở mục "Lịch trực" nhé.`,
+        link: () => ({ text: 'Mở Google Form đặt lịch', href: safeUrl(info().bookingUrl) })
+    },
+    emergency: {
+        user: 'Tôi cần giúp đỡ khẩn cấp',
+        bot: () => `Nếu bạn đang có ý định làm hại bản thân hoặc cảm thấy mất kiểm soát, xin hãy liên hệ NGAY:\n• Hotline ${info().hotline}\n• Cấp cứu 115\n• Hoặc đến thẳng ${info().room}\nHãy báo cho bạn cùng phòng hoặc người thân bên cạnh. Bạn không đơn độc.`,
+        link: () => ({ text: `Gọi ${info().hotline}`, href: telHref(info().hotline) })
+    }
+};
+
+function addMessage(text, sender, link) {
+    const div = el('div', `bubble ${sender}`);
+    div.append(document.createTextNode(text));
+    if (link) {
+        div.append(document.createElement('br'));
+        const a = el('a', '', link.text);
+        a.href = link.href;
+        if (link.href.startsWith('http')) {
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+        }
+        div.append(a);
+    }
+    chatBody.append(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function sendQuick(type) {
+    const topic = TOPICS[type];
+    if (!topic) return;
+    addMessage(topic.user, 'user');
+    setTimeout(() => addMessage(topic.bot(), 'bot', topic.link ? topic.link() : null), 400);
+}
+
+function setChat(open) {
+    chatWindow.hidden = !open;
+    chatToggle.setAttribute('aria-expanded', String(open));
+    if (open) closeChat.focus();
+    else chatToggle.focus();
+}
+
+chatToggle.addEventListener('click', () => setChat(chatWindow.hidden));
+closeChat.addEventListener('click', () => setChat(false));
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !chatWindow.hidden) setChat(false);
+});
+document.getElementById('chatFooter').addEventListener('click', e => {
+    const btn = e.target.closest('[data-topic]');
+    if (btn) sendQuick(btn.dataset.topic);
+});
+
+renderAll();
+
+</script>
+<script>
+'use strict';
+/* Trình chỉnh sửa nội dung (Quản trị). Chỉ được tải khi bấm "Quản trị".
+ * - Sửa: xem thay đổi ngay trên trang.
+ * - Lưu nháp: lưu trong trình duyệt này.
+ * - Đăng: ghi file data/site-data.js vào repo GitHub bằng token -> mọi người thấy.
+ */
+(function () {
+    const K = window.KTX;
+    const SESSION_KEY = 'ktx-admin-gh';
+    const DATA_PATH = 'data/site-data.js';
+    // Bản một file: dữ liệu nằm ngay trong index.html (không có thẻ script tới data/site-data.js)
+    const SINGLE = !document.querySelector('script[src*="site-data.js"]');
+    let work = null;
+    let panel = null;
+
+    /* ---------- helpers ---------- */
+    function h(tag, attrs, ...children) {
+        const n = document.createElement(tag);
+        Object.entries(attrs || {}).forEach(([k, v]) => {
+            if (k === 'class') n.className = v;
+            else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+            else n.setAttribute(k, v);
+        });
+        children.flat().forEach(c => n.append(c instanceof Node ? c : document.createTextNode(c)));
+        return n;
+    }
+
+    function field(label, value, onInput, opts = {}) {
+        const input = opts.multiline
+            ? h('textarea', { rows: '3' })
+            : h('input', { type: opts.type || 'text' });
+        input.value = value || '';
+        if (opts.placeholder) input.placeholder = opts.placeholder;
+        input.addEventListener('input', () => onInput(input.value));
+        return h('label', { class: 'adm-field' }, h('span', {}, label), input);
+    }
+
+    function toFileText(data) {
+        return 'window.SITE_DATA = ' + JSON.stringify(data, null, 2) + ';\n';
+    }
+
+    function parseFileText(text) {
+        const a = text.indexOf('{');
+        const b = text.lastIndexOf('}');
+        if (a < 0 || b < a) throw new Error('File không đúng định dạng.');
+        return JSON.parse(text.slice(a, b + 1));
+    }
+
+    function validate(d) {
+        const i = d.info;
+        if (!i.hotline.trim()) return 'Hotline không được để trống.';
+        if (!/^\S+@\S+\.\S+$/.test(i.email)) return 'Email chưa hợp lệ.';
+        if (!/^https?:\/\//i.test(i.bookingUrl)) return 'Link đặt lịch phải bắt đầu bằng http:// hoặc https://';
+        for (const w of d.workshops) {
+            if (!w.title.trim()) return 'Có workshop chưa nhập tên.';
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(w.date) || isNaN(K.parseDate(w.date))) return `Workshop "${w.title}": ngày chưa hợp lệ.`;
+        }
+        return '';
+    }
+
+    function b64(str) {
+        return btoa(unescape(encodeURIComponent(str)));
+    }
+
+    function guessRepo() {
+        const host = location.hostname;
+        if (host.endsWith('.github.io')) {
+            return { owner: host.split('.')[0], repo: location.pathname.split('/')[1] || host };
+        }
+        return { owner: '', repo: '' };
+    }
+
+    /* ---------- các mục ---------- */
+    function infoSection() {
+        const i = work.info;
+        const sync = () => K.setData(work);
+        return h('section', { class: 'adm-sec' },
+            h('h3', {}, 'Thông tin chung'),
+            field('Tên chuyên gia', i.expertName, v => { i.expertName = v; sync(); }),
+            field('Địa điểm phòng tham vấn', i.room, v => { i.room = v; sync(); }),
+            field('Hotline', i.hotline, v => { i.hotline = v; sync(); }),
+            field('Email', i.email, v => { i.email = v; sync(); }, { type: 'email' }),
+            field('Link đặt lịch (Google Form)', i.bookingUrl, v => { i.bookingUrl = v; sync(); }, { type: 'url' })
+        );
+    }
+
+    function scheduleSection() {
+        const box = h('div', {});
+        function draw() {
+            box.replaceChildren();
+            work.schedule.forEach((r, idx) => {
+                const sel = h('select', {});
+                [1, 2, 3, 4, 5, 6, 7].forEach(n => {
+                    const o = h('option', { value: String(n) }, K.WEEKDAYS[n % 7]);
+                    if (Number(r.day) === n) o.selected = true;
+                    sel.append(o);
+                });
+                sel.addEventListener('change', () => { r.day = Number(sel.value); K.setData(work); });
+                box.append(h('div', { class: 'adm-row' },
+                    h('label', { class: 'adm-field' }, h('span', {}, 'Ngày'), sel),
+                    field('Sáng', r.morning, v => { r.morning = v; K.setData(work); }),
+                    field('Chiều', r.afternoon, v => { r.afternoon = v; K.setData(work); }),
+                    field('Ghi chú', r.note, v => { r.note = v; K.setData(work); }),
+                    h('button', { type: 'button', class: 'adm-btn danger', onclick: () => { work.schedule.splice(idx, 1); K.setData(work); draw(); } }, 'Xóa')
+                ));
+            });
+        }
+        draw();
+        return h('section', { class: 'adm-sec' },
+            h('h3', {}, 'Lịch trực'),
+            box,
+            h('button', { type: 'button', class: 'adm-btn', onclick: () => {
+                work.schedule.push({ day: 1, morning: '8:00 – 11:30', afternoon: '14:00 – 17:00', note: '' });
+                K.setData(work); draw();
+            } }, '+ Thêm dòng')
+        );
+    }
+
+    function workshopSection() {
+        const box = h('div', {});
+        function draw() {
+            box.replaceChildren();
+            work.workshops.forEach((w, idx) => {
+                box.append(h('div', { class: 'adm-card' },
+                    field('Tên workshop', w.title, v => { w.title = v; K.setData(work); }),
+                    h('div', { class: 'adm-row' },
+                        field('Ngày', w.date, v => { w.date = v; K.setData(work); }, { type: 'date' }),
+                        field('Giờ', w.time, v => { w.time = v; K.setData(work); }),
+                        field('Địa điểm', w.place, v => { w.place = v; K.setData(work); })
+                    ),
+                    field('Mô tả', w.desc, v => { w.desc = v; K.setData(work); }, { multiline: true }),
+                    h('button', { type: 'button', class: 'adm-btn danger', onclick: () => { work.workshops.splice(idx, 1); K.setData(work); draw(); } }, 'Xóa workshop')
+                ));
+            });
+        }
+        draw();
+        return h('section', { class: 'adm-sec' },
+            h('h3', {}, 'Workshop'),
+            h('p', { class: 'adm-hint' }, 'Workshop có ngày đã qua sẽ tự nằm ở mục "đã diễn ra".'),
+            box,
+            h('button', { type: 'button', class: 'adm-btn', onclick: () => {
+                const t = new Date(Date.now() + 14 * 864e5).toISOString().slice(0, 10);
+                work.workshops.push({ title: 'Workshop mới', date: t, time: '14:00 – 16:00', place: '', desc: '' });
+                K.setData(work); draw();
+            } }, '+ Thêm workshop')
+        );
+    }
+
+    function saveSection() {
+        const guess = guessRepo();
+        let saved = {};
+        try { saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '{}'); } catch (e) { /* ignore */ }
+        const cfg = {
+            owner: saved.owner || guess.owner, repo: saved.repo || guess.repo,
+            branch: saved.branch || 'main', token: saved.token || ''
+        };
+        const status = h('p', { class: 'adm-status', role: 'status' });
+        const say = (msg, ok) => { status.textContent = msg; status.className = 'adm-status ' + (ok ? 'ok' : 'err'); };
+
+        const remember = h('input', { type: 'checkbox' });
+        remember.checked = !!saved.token;
+
+        const gh = h('div', { class: 'adm-gh' },
+            h('div', { class: 'adm-row' },
+                field('Tài khoản GitHub', cfg.owner, v => cfg.owner = v.trim()),
+                field('Tên repository', cfg.repo, v => cfg.repo = v.trim()),
+                field('Nhánh', cfg.branch, v => cfg.branch = v.trim())
+            ),
+            field('Token GitHub (quyền Contents: Read and write)', cfg.token, v => cfg.token = v.trim(), { type: 'password' }),
+            h('label', { class: 'adm-check' }, remember, ' Nhớ token trong phiên này (xóa khi đóng tab)')
+        );
+
+        async function publish() {
+            const err = validate(work);
+            if (err) return say(err, false);
+            if (!cfg.owner || !cfg.repo || !cfg.token) return say('Hãy nhập tài khoản, repository và token GitHub.', false);
+            const path = SINGLE ? 'index.html' : DATA_PATH;
+            const api = `https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/contents/${path}`;
+            const headers = {
+                Authorization: `Bearer ${cfg.token}`,
+                Accept: 'application/vnd.github+json'
+            };
+            say('Đang đăng…', true);
+            try {
+                let sha, current = '';
+                const get = await fetch(`${api}?ref=${encodeURIComponent(cfg.branch)}`, { headers });
+                if (get.ok) {
+                    const j = await get.json();
+                    sha = j.sha;
+                    current = decodeURIComponent(escape(atob(String(j.content).replace(/\s/g, ''))));
+                } else if (get.status !== 404 || SINGLE) {
+                    throw new Error(get.status === 401 || get.status === 403 ? 'Token không đúng hoặc không đủ quyền.' : `Không đọc được ${path} trong repo (${get.status}). Kiểm tra lại tên tài khoản, repo, nhánh.`);
+                }
+
+                let newText;
+                if (SINGLE) {
+                    const a = current.indexOf('window.SITE_DATA = ');
+                    const b = current.indexOf('\n};', a);
+                    if (a < 0 || b < 0) throw new Error('Không tìm thấy khối dữ liệu trong index.html của repo.');
+                    newText = current.slice(0, a) + toFileText(work).trimEnd() + current.slice(b + 4);
+                } else {
+                    newText = toFileText(work);
+                }
+
+                const put = await fetch(api, {
+                    method: 'PUT',
+                    headers: { ...headers, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: 'Cập nhật nội dung website qua trang Quản trị',
+                        content: b64(newText),
+                        branch: cfg.branch,
+                        ...(sha ? { sha } : {})
+                    })
+                });
+                if (!put.ok) {
+                    const j = await put.json().catch(() => ({}));
+                    throw new Error(j.message || `Lỗi GitHub (${put.status}).`);
+                }
+                if (remember.checked) sessionStorage.setItem(SESSION_KEY, JSON.stringify(cfg));
+                else sessionStorage.removeItem(SESSION_KEY);
+                localStorage.removeItem('ktx-site-draft-v1');
+                say('Đã đăng thành công. GitHub Pages cần khoảng 1–2 phút để cập nhật cho mọi người.', true);
+            } catch (e) {
+                say(e.message || 'Không kết nối được GitHub.', false);
+            }
+        }
+
+        function download() {
+            const err = validate(work);
+            if (err) return say(err, false);
+            const a = h('a', {
+                href: URL.createObjectURL(new Blob([toFileText(work)], { type: 'text/javascript' })),
+                download: 'site-data.js'
+            });
+            document.body.append(a); a.click(); a.remove();
+            say('Đã tải site-data.js. Thay file này vào thư mục data/ rồi commit lên GitHub.', true);
+        }
+
+        const fileIn = h('input', { type: 'file', accept: '.js,.json', hidden: '' });
+        fileIn.addEventListener('change', async () => {
+            try {
+                const d = parseFileText(await fileIn.files[0].text());
+                if (!d.info || !Array.isArray(d.schedule) || !Array.isArray(d.workshops)) throw new Error('Thiếu dữ liệu.');
+                work = d; K.setData(work); rebuild();
+            } catch (e) { say('Không đọc được file: ' + e.message, false); }
+        });
+
+        return h('section', { class: 'adm-sec' },
+            h('h3', {}, 'Lưu & đăng'),
+            h('div', { class: 'adm-actions' },
+                h('button', { type: 'button', class: 'adm-btn', onclick: () => {
+                    const err = validate(work);
+                    if (err) return say(err, false);
+                    K.saveDraft(work); say('Đã lưu bản nháp trong trình duyệt này (chưa hiện với người khác).', true);
+                } }, '💾 Lưu nháp'),
+                h('button', { type: 'button', class: 'adm-btn', onclick: download }, '⬇️ Tải file'),
+                h('button', { type: 'button', class: 'adm-btn', onclick: () => fileIn.click() }, '⬆️ Nhập file'),
+                h('button', { type: 'button', class: 'adm-btn danger', onclick: () => {
+                    if (!confirm('Bỏ mọi thay đổi và quay về bản đang đăng?')) return;
+                    K.clearDraft(); work = K.getBase(); rebuild();
+                } }, '↩️ Bỏ thay đổi'),
+                fileIn
+            ),
+            h('h4', {}, 'Đăng lên GitHub để mọi người cùng thấy'),
+            gh,
+            h('button', { type: 'button', class: 'adm-btn primary', onclick: publish }, '🚀 Đăng lên website'),
+            status
+        );
+    }
+
+    /* ---------- panel ---------- */
+    function rebuild() {
+        const body = panel.querySelector('.adm-body');
+        body.replaceChildren(infoSection(), scheduleSection(), workshopSection(), saveSection());
+    }
+
+    function close() {
+        panel.hidden = true;
+        document.body.classList.remove('adm-open');
+    }
+
+    function open() {
+        if (!panel) {
+            panel = h('aside', { class: 'adm-panel', role: 'dialog', 'aria-label': 'Trình chỉnh sửa nội dung' },
+                h('div', { class: 'adm-head' },
+                    h('strong', {}, '🔧 Chỉnh sửa nội dung'),
+                    h('button', { type: 'button', class: 'adm-close', 'aria-label': 'Đóng', onclick: close }, '×')
+                ),
+                h('div', { class: 'adm-body' })
+            );
+            document.body.append(panel);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) close(); });
+        }
+        work = K.getData();
+        if (!Array.isArray(work.schedule)) work.schedule = [];
+        if (!Array.isArray(work.workshops)) work.workshops = [];
+        rebuild();
+        panel.hidden = false;
+        document.body.classList.add('adm-open');
+    }
+
+    K.openAdmin = open;
+})();
+
+</script>
 </body>
 </html>
