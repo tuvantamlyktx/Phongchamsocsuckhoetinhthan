@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tư vấn tâm lý KTX – Hỗ trợ sức khỏe tinh thần sinh viên</title>
+    <meta name="description" content="Phòng tham vấn tâm lý Ký túc xá: miễn phí, bảo mật. Đặt lịch hẹn, xem lịch trực, workshop và kiến thức chăm sóc sức khỏe tinh thần cho sinh viên.">
+    <meta name="theme-color" content="#1565c0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tư vấn tâm lý KTX">
+    <meta property="og:description" content="Không gian chăm sóc sức khỏe tinh thần cho sinh viên Ký túc xá. Miễn phí và bảo mật.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💙%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Bỏ qua để tới nội dung chính</a>
+
+    <div class="draft-banner" id="draftBanner" hidden>
+        Bạn đang xem <strong>bản nháp chưa đăng</strong> (chỉ thấy trên trình duyệt này).
+        <button type="button" class="link-btn" data-open-admin>Mở trình chỉnh sửa</button>
+    </div>
+
+    <header class="site-header">
+        <h1><span aria-hidden="true">🧠</span> Tư vấn tâm lý KTX</h1>
+        <p>Không gian chăm sóc sức khỏe tinh thần cho sinh viên Ký túc xá</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="#about">Giới thiệu</a>
+        <a href="#knowledge">Kiến thức</a>
+        <a href="#schedule">Lịch trực</a>
+        <a href="#workshops">Workshop</a>
+        <a href="#contact">Liên hệ</a>
+    </nav>
+
+    <main id="main" class="container">
+        <!-- Giới thiệu -->
+        <section id="about">
+            <h2>Về phòng tham vấn</h2>
+            <div class="card">
+                <p>Phòng tham vấn tâm lý KTX do chuyên gia tâm lý <strong data-bind="expertName"></strong> phụ trách, sẵn sàng lắng nghe mọi vấn đề của bạn: áp lực học tập, khó khăn trong các mối quan hệ, cảm giác cô đơn, lo âu, mất ngủ… Dịch vụ hoàn toàn miễn phí và được bảo mật.</p>
+                <p class="mt">
+                    <span aria-hidden="true">📍</span> <strong>Địa điểm:</strong> <span data-bind="room"></span><br>
+                    <span aria-hidden="true">📞</span> <strong>Hotline hỗ trợ:</strong> <a data-bind-tel="hotline" href="#"></a>
+                </p>
+                <a data-bind-href="bookingUrl" href="#" class="btn mt" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📅</span> Đặt lịch hẹn qua Google Form</a>
+            </div>
+        </section>
+
+        <!-- Kiến thức -->
+        <section id="knowledge">
+            <h2>Góc kiến thức</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3><span aria-hidden="true">😰</span> Stress &amp; cách vượt qua</h3>
+                    <p>Stress là phản ứng tự nhiên, nhưng nếu kéo dài sẽ ảnh hưởng đến sức khỏe và học tập.</p>
+                    <details>
+                        <summary>Xem gợi ý</summary>
+                        <ul>
+                            <li>Thở 4-7-8: hít vào 4 giây, giữ 7 giây, thở ra 8 giây, lặp lại 3–4 lần.</li>
+                            <li>Thư giãn cơ tiến triển: siết rồi thả lỏng từng nhóm cơ.</li>
+                            <li>Chia nhỏ việc cần làm và ưu tiên theo mức độ quan trọng.</li>
+                        </ul>
+                    </details>
+                </article>
+                <article class="card">
+                    <h3><span aria-hidden="true">😴</span> Khó ngủ, mất ngủ</h3>
+                    <p>Giấc ngủ ảnh hưởng lớn đến tinh thần và khả năng tập trung.</p>
+                    <details>
+                        <summary>Xem gợi ý</summary>
+                        <ul>
+                            <li>Đi ngủ và thức dậy đúng giờ, kể cả cuối tuần.</li>
+                            <li>Giảm ánh sáng xanh từ điện thoại 30–60 phút trước khi ngủ.</li>
+                            <li>Hạn chế caffeine từ chiều muộn.</li>
+                        </ul>
+                    </details>
+                </article>
+                <article class="card">
+                    <h3><span aria-hidden="true">💬</span> Cô đơn khi xa nhà</h3>
+                    <p>Cảm giác nhớ nhà, lạc lõng là điều rất bình thường với sinh viên mới.</p>
+                    <details>
+                        <summary>Xem gợi ý</summary>
+                        <ul>
+                            <li>Tham gia câu lạc bộ, hoạt động tình nguyện hoặc tập thể thao nhóm.</li>
+                            <li>Giữ liên lạc đều đặn với gia đình và bạn bè.</li>
+                            <li>Trò chuyện với chuyên gia khi cảm giác này kéo dài.</li>
+                        </ul>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <!-- Lịch trực (render từ data/site-data.js) -->
+        <section id="schedule">
+            <h2>Lịch trực của chuyên gia</h2>
+            <div class="table-wrap">
+                <table>
+                    <caption class="sr-only">Lịch trực trong tuần của chuyên gia tâm lý</caption>
+                    <thead>
+                        <tr><th scope="col">Ngày</th><th scope="col">Buổi sáng</th><th scope="col">Buổi chiều</th><th scope="col">Ghi chú</th></tr>
+                    </thead>
+                    <tbody id="scheduleBody"></tbody>
+                </table>
+            </div>
+            <p class="note"><span aria-hidden="true">📌</span> Vui lòng đặt lịch trước qua website hoặc gọi <a data-bind-tel="hotline" href="#"></a> ngoài giờ trực để được sắp xếp.</p>
+        </section>
+
+        <!-- Workshop -->
+        <section id="workshops">
+            <h2>Workshop sắp tới</h2>
+            <div class="grid" id="upcomingWorkshops"></div>
+            <p class="note"><span aria-hidden="true">📌</span> Các workshop hoàn toàn miễn phí, bảo mật, dành riêng cho sinh viên KTX.</p>
+
+            <h2 class="mt-lg">Workshop đã diễn ra</h2>
+            <div class="grid" id="pastWorkshops"></div>
+        </section>
+
+        <!-- Liên hệ -->
+        <section id="contact">
+            <h2>Liên hệ &amp; hỗ trợ khẩn cấp</h2>
+            <div class="card">
+                <p><strong>📧 Email:</strong> <a data-bind-mailto="email" href="#"></a></p>
+                <p><strong>📞 Hotline hỗ trợ:</strong> <a class="hotline" data-bind-tel="hotline" href="#"></a></p>
+                <p class="alert">Nếu bạn hoặc ai đó đang có nguy cơ làm hại bản thân hoặc tính mạng, hãy gọi cấp cứu <a href="tel:115"><strong>115</strong></a> hoặc báo ngay cho cán bộ KTX/người thân gần nhất. Bạn không đơn độc.</p>
+                <p class="mt">Bạn cũng có thể bấm nút <strong>“Khẩn cấp”</strong> trong hộp chat để được hướng dẫn.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> Tư vấn tâm lý KTX – Dự án truyền thông sức khỏe tinh thần.</p>
+        <p class="disclaimer">Website chỉ cung cấp thông tin tham khảo và không thay thế chẩn đoán hay điều trị y khoa.</p>
+        <p class="admin-link"><button type="button" class="link-btn" data-open-admin>🔧 Quản trị</button></p>
+    </footer>
+
+    <!-- Chat widget -->
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow" role="dialog" aria-labelledby="chatTitle" hidden>
+            <div class="chat-header">
+                <span id="chatTitle">💙 PsyBot – trợ lý hỗ trợ</span>
+                <button type="button" class="close-chat" id="closeChat" aria-label="Đóng hộp chat">×</button>
+            </div>
+            <div class="chat-body" id="chatBody" aria-live="polite">
+                <div class="bubble bot">👋 Chào bạn! Mình là PsyBot, trợ lý tự động của phòng tham vấn. Mình có thể giúp gì cho bạn? Vui lòng chọn bên dưới nhé.</div>
+            </div>
+            <div class="chat-footer" id="chatFooter">
+                <button type="button" class="quick-option" data-topic="stress">😰 Tôi đang stress</button>
+                <button type="button" class="quick-option" data-topic="sleep">😴 Tôi mất ngủ</button>
+                <button type="button" class="quick-option" data-topic="alone">🥺 Tôi thấy cô đơn</button>
+                <button type="button" class="quick-option" data-topic="booking">📅 Muốn đặt lịch gặp</button>
+                <button type="button" class="quick-option emergency" data-topic="emergency">🆘 Khẩn cấp</button>
+            </div>
+        </div>
+        <button type="button" class="chat-icon" id="chatToggle" aria-label="Mở hộp chat hỗ trợ" aria-expanded="false" aria-controls="chatWindow">💬</button>
+    </div>
+
+    <script src="data/site-data.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
